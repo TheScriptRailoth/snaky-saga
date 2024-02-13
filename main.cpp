@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdlib>
+#include<windows.h>
+
 #define WIDTH 50
 #define HEIGHT 25
 using namespace std;
@@ -25,6 +27,7 @@ int main()
     while(true){
         board();
         x++;
-        system("cls");
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),{0, 0});
+        //system("cls");
     }
 }

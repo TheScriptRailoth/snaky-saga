@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1707833931 source:d:\c++ projects\snake game\main.cpp
+1707833983 source:d:\c++ projects\snake game\main.cpp
 	<iostream>
 	<cstdlib>
 	<windows.h>
@@ -8,7 +8,7 @@
 	"Snake .h"
 	"Food.h"
 
-1707832405 source:d:\c++ projects\snake game\src\snake .cpp
+1707840299 source:d:\c++ projects\snake game\src\snake .cpp
 	"Snake .h"
 
 1707832663 d:\c++ projects\snake game\include\snake .h

@@ -25,6 +25,8 @@ void Snake::moveSnake()
         case 'r': pos.X = pos.X + speed; break;
     }
 
+    if(pos.X>WIDTH-2) pos.X=0;
+    if(pos.X<1) pos.X = WIDTH-2;
     body.push_back(pos);
     if(body.size()>len) body.erase(body.begin());
 }
@@ -48,8 +50,12 @@ void Snake::growSnake(){
 }
 
 bool Snake::snakeCollision(){
-    if(pos.X<1 || pos.X >=WIDTH-1 || pos.Y<1 || pos.Y>=HEIGHT-1){
+    if(pos.X<1 || pos.X >=WIDTH-2 || pos.Y < 1 || pos.Y > HEIGHT-2){
         return true;
     }
+    //afor(int i=0;i<len-1;i++)
+    //{
+    //    if(pos.X==body[i].X && pos.Y == body[i].Y) return true;
+    //}
     return false;
 }

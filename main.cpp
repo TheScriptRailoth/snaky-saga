@@ -13,6 +13,7 @@ using namespace std;
 
 Snake Snake({WIDTH/2, HEIGHT/2}, 1);
 Food food;
+int score;
 
 void board()
 {
@@ -20,6 +21,8 @@ void board()
     COORD food_pos= food.getPos();
 
     vector<COORD> snakeBody= Snake.getBody();
+
+    cout<<"YOUR SCORE : "<<score<<"\n\n";
 
     for(int i=0;i<HEIGHT;i++)
     {
@@ -51,6 +54,7 @@ void board()
 }
 int main()
 {
+    score=0;
     srand(time(NULL));
     food.generateFood();
     bool isGameOver=false;
@@ -72,6 +76,7 @@ int main()
         {
             food.generateFood();
             Snake.growSnake();
+            score++;
         }
         if(Snake.snakeCollision()){
             isGameOver=true;

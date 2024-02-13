@@ -22,6 +22,7 @@ class Snake
 
         bool foodEaten(COORD foodPos);
         void growSnake();
+        bool snakeCollision();
 };
 
 #endif // SNAKE _H

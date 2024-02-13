@@ -39,7 +39,9 @@ void board()
 int main()
 {
     srand(time(NULL));
-    while(true){
+    bool isGameOver=false;
+    while(!isGameOver)
+    {
         board();
 
         if(kbhit()){
@@ -57,6 +59,9 @@ int main()
         {
             food.generateFood();
             Snake.growSnake();
+        }
+        if(Snake.snakeCollision()){
+            isGameOver=true;
         }
 
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),{0, 0});

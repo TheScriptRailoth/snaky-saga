@@ -1,14 +1,23 @@
 # depslib dependency file v1.0
-1707817674 source:d:\c++ projects\snake game\main.cpp
+1707819930 source:d:\c++ projects\snake game\main.cpp
 	<iostream>
 	<cstdlib>
 	<windows.h>
 	<conio.h>
+	<ctime>
+	"Snake .h"
+	"Food.h"
+
+1707819027 source:d:\c++ projects\snake game\src\snake .cpp
 	"Snake .h"
 
-1707817453 source:d:\c++ projects\snake game\src\snake .cpp
-	"Snake .h"
-
-1707814006 d:\c++ projects\snake game\include\snake .h
+1707819006 d:\c++ projects\snake game\include\snake .h
 	<windows.h>
+
+1707819155 source:d:\c++ projects\snake game\src\food.cpp
+	"Food.h"
+
+1707819303 d:\c++ projects\snake game\include\food.h
+	<windows.h>
+	<cstdlib>
 

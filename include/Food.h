@@ -10,9 +10,7 @@ class Food
         void generateFood();
         COORD getPos();
 
-    protected:
-
-    private:
+     private:
         COORD pos;
 
 };

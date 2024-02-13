@@ -2,16 +2,22 @@
 #include <cstdlib>
 #include<windows.h>
 #include<conio.h>
+#include<ctime>
 
 #include "Snake .h"
+#include "Food.h"
+
 #define WIDTH 50
 #define HEIGHT 25
 using namespace std;
 
 Snake Snake({WIDTH/2, HEIGHT/2}, 1);
+Food food;
+
 void board()
 {
     COORD snake_pos = Snake.getPos();
+    COORD food_pos= food.getPos();
 
     for(int i=0;i<HEIGHT;i++)
     {
@@ -22,6 +28,8 @@ void board()
                 cout<<'#';
             else if(i==snake_pos.Y && j==snake_pos.X)
                 cout<<'0';
+            else if(i==food_pos.Y && j==food_pos.X)
+                cout<<"*";
             else
                 cout<<' ';
         }
@@ -30,6 +38,7 @@ void board()
 }
 int main()
 {
+    srand(time(NULL));
     while(true){
         board();
 
@@ -43,6 +52,12 @@ int main()
             }
         }
         Snake.moveSnake();
+
+        if(Snake.foodEaten(food.getPos()))
+        {
+            food.generateFood();
+            Snake.growSnake();
+        }
 
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),{0, 0});
         //system("cls");

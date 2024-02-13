@@ -19,6 +19,9 @@ class Snake
         void changeDirection(char dir);
         void moveSnake();
         COORD getPos();
+
+        bool foodEaten(COORD foodPos);
+        void growSnake();
 };
 
 #endif // SNAKE _H

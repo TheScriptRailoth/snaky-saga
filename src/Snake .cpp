@@ -25,3 +25,15 @@ void Snake::moveSnake()
 COORD Snake::getPos(){
     return pos;
 }
+
+bool Snake::foodEaten(COORD foodPos)
+{
+    if(foodPos.X==pos.X && foodPos.Y==pos.Y){
+        return true;
+    }
+    return false;
+}
+
+void Snake::growSnake(){
+    len++;
+}

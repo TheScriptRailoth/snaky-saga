@@ -6,7 +6,6 @@
 class Food
 {
     public:
-        Food();
         void generateFood();
         COORD getPos();
 

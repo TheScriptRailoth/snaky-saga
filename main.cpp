@@ -39,6 +39,7 @@ void board()
 int main()
 {
     srand(time(NULL));
+    food.generateFood();
     bool isGameOver=false;
     while(!isGameOver)
     {

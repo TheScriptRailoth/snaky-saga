@@ -8,6 +8,8 @@ Snake::Snake (COORD pos, int speed)
     this->speed=speed;
     len=1;
     direction='n';
+
+    body.push_back(pos);
 }
 void Snake::changeDirection(char dir){
     direction=dir;
@@ -22,11 +24,16 @@ void Snake::moveSnake()
         case 'l': pos.X = pos.X - speed; break;
         case 'r': pos.X = pos.X + speed; break;
     }
+
+    body.push_back(pos);
+    if(body.size()>len) body.erase(body.begin());
 }
 
 COORD Snake::getPos(){
     return pos;
 }
+
+vector<COORD> Snake::getBody(){return body;}
 
 bool Snake::foodEaten(COORD foodPos)
 {

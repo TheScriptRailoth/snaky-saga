@@ -19,6 +19,8 @@ void board()
     COORD snake_pos = Snake.getPos();
     COORD food_pos= food.getPos();
 
+    vector<COORD> snakeBody= Snake.getBody();
+
     for(int i=0;i<HEIGHT;i++)
     {
         cout<<"\t\t#";
@@ -26,12 +28,23 @@ void board()
         {
             if(i==0 || i==HEIGHT-1)
                 cout<<'#';
-            else if(i==snake_pos.Y && j==snake_pos.X)
+            else if(i==snake_pos.Y && j+1==snake_pos.X)
                 cout<<'0';
-            else if(i==food_pos.Y && j==food_pos.X)
+            else if(i==food_pos.Y && j+1==food_pos.X)
                 cout<<"*";
-            else
-                cout<<' ';
+            else{
+                bool isBodyPart = false;
+                for(int k=0;k<snakeBody.size()-1;k++)
+                {
+                    if(i==snakeBody[k].Y && j+1==snakeBody[k].X)
+                    {
+                        cout<<"0";
+                        isBodyPart=true;
+                        break;
+                    }
+                }
+                if(!isBodyPart)cout<<" ";
+            }
         }
         cout<<"#\n";
     }
@@ -54,7 +67,6 @@ int main()
                 case 'd':Snake.changeDirection('r');break;
             }
         }
-        Snake.moveSnake();
 
         if(Snake.foodEaten(food.getPos()))
         {
@@ -64,6 +76,8 @@ int main()
         if(Snake.snakeCollision()){
             isGameOver=true;
         }
+
+        Snake.moveSnake();
 
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),{0, 0});
         //system("cls");
